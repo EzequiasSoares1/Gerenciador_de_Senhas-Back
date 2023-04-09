@@ -1,14 +1,17 @@
 package br.edu.ifpb.dac.gerenciadorSenha.presentation.dto;
-import br.edu.ifpb.dac.gerenciadorSenha.model.entity.Services;
 
-public class DataDTO{
+import java.io.Serializable;
+
+public class DataDTO implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private long id;	
 
 	private String nameServer;
 	private String password;
 	private String email;
-	private Services service;
+	private String observation;
 	
 	public long getId() {
 		return id;
@@ -34,17 +37,17 @@ public class DataDTO{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Services getService() {
-		return service;
+	public String getObservation() {
+		return observation;
 	}
-	public void setService(Services service) {
-		this.service = service;
+	public void setObservation(String observation) {
+		this.observation = observation;
 	}
 	
-	public DataDTO(String nameServer, String password, String email, Services service) {
+	public DataDTO(String nameServer, String password, String email,String observation) {
 		this.nameServer = nameServer;
 		this.password = password;
 		this.email = email;
-		this.service = service;
+		this.observation = observation;
 	}
 }

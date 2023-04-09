@@ -17,6 +17,7 @@ public class User{
 	private String login;
 	private String name;
 	private String password;
+	private String telephone;
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, orphanRemoval = true)
 	@JoinColumn(name="USERDATA_FK")
@@ -25,14 +26,20 @@ public class User{
 	public User() {
 	}
 	
-	public User(String name, String password, String loginUser,Set<Data> dataSever) {
+	public User(String name, String password, String loginUser,String telephone, Set<Data> dataSever) {
 		this.name = name;
 		this.password = password;
 		this.login = loginUser;
+		this.telephone = telephone;
 		this.dataSever = dataSever;
 	}
 	
-	
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
 	public String getLogin() {
 		return login;
 	}

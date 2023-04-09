@@ -1,26 +1,36 @@
 package br.edu.ifpb.dac.gerenciadorSenha.presentation.dto;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import br.edu.ifpb.dac.gerenciadorSenha.model.entity.Data;
 
-public class UserDTO{
+public class UserDTO implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private String login;
 	private String name;
 	private String password;
+	private String telephone;
+	
 
 	private Set<Data> dataSever = new HashSet<>();
-
+	public UserDTO() {}
 	
-	public UserDTO(String name, String password, String loginUser,Set<Data> dataSever) {
+	public UserDTO(String name, String password, String loginUser, String telephone,Set<Data> dataSever) {
 		this.name = name;
 		this.password = password;
 		this.login = loginUser;
+		this.telephone = telephone;
 		this.dataSever = dataSever;
 	}
 	
-	
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
 	public String getLogin() {
 		return login;
 	}

@@ -11,21 +11,21 @@ import br.edu.ifpb.dac.gerenciadorSenha.model.entity.User;
 public class ConverterDTO {
 	
 	public User dtoToUser(UserDTO userdto) {
-		return new User(userdto.getName(),userdto.getPassword(), userdto.getLogin(), userdto.getDataSever());
+		return new User(userdto.getName(),userdto.getPassword(), userdto.getLogin(),userdto.getTelephone(), userdto.getDataSever());
 	}
 	public UserDTO userToDto(User user) {
-		return new UserDTO(user.getName(),null, user.getLogin(), user.getDataSever());
+		return new UserDTO(user.getName(),null, user.getLogin(),user.getTelephone(), user.getDataSever());
 	}
 	public UserDTO userToDtoNoData(User user) {
-		return new UserDTO(user.getName(),null, user.getLogin(), null);
+		return new UserDTO(user.getName(),null, user.getLogin(),user.getTelephone(), null);
 	}
 	public Data dtoToData(DataDTO datadto) {
-		Data d = new Data(datadto.getNameServer(), datadto.getPassword(), datadto.getEmail(), datadto.getService());
+		Data d = new Data(datadto.getNameServer(), datadto.getPassword(), datadto.getEmail(), datadto.getObservation());
 		d.setId(datadto.getId());
 		return d;
 	}
 	public DataDTO dataToDto(Data data) {
-		DataDTO d = new DataDTO(data.getNameServer(), data.getPassword(), data.getEmail(), data.getService());
+		DataDTO d = new DataDTO(data.getNameServer(), data.getPassword(), data.getEmail(), data.getObservation());
 		d.setId(data.getId());
 		return d;
 		

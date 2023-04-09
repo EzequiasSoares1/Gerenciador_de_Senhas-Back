@@ -37,7 +37,7 @@ public class ControllerData {
 			u.setEmail(data.getEmail());
 			u.setNameServer(data.getNameServer());
 			u.setPassword(data.getPassword());
-			u.setService(data.getService());
+			u.setObservation(data.getObservation());
 			dataServe.save(u);
 			
 		}catch(Exception e) {

@@ -18,10 +18,7 @@ public class Data{
 	private String nameServer;
 	private String password;
 	private String email;
-	
-	@Column(name = "SERVICE")
-	@Enumerated(EnumType.STRING)
-	private Services service;
+	private String observation;
 	
 	public long getId() {
 		return id;
@@ -47,29 +44,29 @@ public class Data{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Services getService() {
-		return service;
+	public String getObservation() {
+		return observation;
 	}
-	public void setService(Services service) {
-		this.service = service;
+	public void setObservation(String observation) {
+		this.observation = observation;
 	}
 
 	public Data() {}
 	
-	public Data(String nameServer, String password, String email, Services service) {
+	public Data(String nameServer, String password, String email, String observation) {
 		this.nameServer = nameServer;
 		this.password = password;
 		this.email = email;
-		this.service = service;
+		this.observation = observation;
 	}
 	
 	
 	public String toString() {
-		return " NOME DO SERVIÇO: " + nameServer + "\n SERVIÇO TIPO: " + service.toString() + "\n EMAIL: " + email + "\n SENHA: " + password + " \n";	
+		return " NOME DO SERVIÇO: " + nameServer + "\n SERVIÇO TIPO: " + observation.toString() + "\n EMAIL: " + email + "\n SENHA: " + password + " \n";	
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, id, password, service, nameServer);
+		return Objects.hash(email, id, password, observation, nameServer);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -81,7 +78,7 @@ public class Data{
 			return false;
 		Data other = (Data) obj;
 		return Objects.equals(email, other.email) && id == other.id && Objects.equals(password, other.password)
-				&& service == other.service && Objects.equals(nameServer, other.nameServer);
+				&& observation == other.observation && Objects.equals(nameServer, other.nameServer);
 	}
 	
 }
