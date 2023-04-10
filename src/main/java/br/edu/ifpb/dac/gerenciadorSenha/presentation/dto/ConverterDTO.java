@@ -14,10 +14,10 @@ public class ConverterDTO {
 		return new User(userdto.getName(),userdto.getPassword(), userdto.getLogin(),userdto.getTelephone(), userdto.getDataSever());
 	}
 	public UserDTO userToDto(User user) {
-		return new UserDTO(user.getName(),null, user.getLogin(),user.getTelephone(), user.getDataSever());
+		return new UserDTO(user.getName(),user.getPassword(), user.getLogin(),user.getTelephone(), user.getDataSever());
 	}
 	public UserDTO userToDtoNoData(User user) {
-		return new UserDTO(user.getName(),null, user.getLogin(),user.getTelephone(), null);
+		return new UserDTO(user.getName(),user.getPassword(), user.getLogin(),user.getTelephone(), null);
 	}
 	public Data dtoToData(DataDTO datadto) {
 		Data d = new Data(datadto.getNameServer(), datadto.getPassword(), datadto.getEmail(), datadto.getObservation());

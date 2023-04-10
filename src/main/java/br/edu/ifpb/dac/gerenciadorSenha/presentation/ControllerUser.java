@@ -1,5 +1,7 @@
 package br.edu.ifpb.dac.gerenciadorSenha.presentation;
 import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -32,11 +34,18 @@ public class ControllerUser {
 	
 	public void updateUser(User user) throws Exception {
 		try {
+			
 			CheckerDataAndUser.checkerUser(user);
 			User u = findByUser(user.getLogin());
 			u.setLogin(user.getLogin());
 			u.setName(user.getName());
 			u.setPassword(user.getPassword());
+			u.setTelephone(user.getTelephone());
+			
+			for(Data a: user.getDataSever()) {
+				u.getDataSever().add(a);
+			}
+			
 			userServe.save(u);
 			
 		}catch(Exception e) {

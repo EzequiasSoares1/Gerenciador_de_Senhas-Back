@@ -43,6 +43,7 @@ public class DataDTO implements Serializable{
 	public void setObservation(String observation) {
 		this.observation = observation;
 	}
+	public DataDTO() {}
 	
 	public DataDTO(String nameServer, String password, String email,String observation) {
 		this.nameServer = nameServer;
