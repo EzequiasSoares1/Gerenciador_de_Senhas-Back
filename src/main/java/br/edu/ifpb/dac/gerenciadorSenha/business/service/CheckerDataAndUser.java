@@ -22,8 +22,8 @@ public class CheckerDataAndUser {
 		  }	
 	}
 	public static void checkerData(Data data) throws Exception{
-		if(data  == null || data.getNameServer() == null ||  data.getPassword() == null
-			|| data.getNameServer().equals("") || data.getPassword() .equals("")) {
+		if(data  == null || data.getNameService() == null ||  data.getPassword() == null
+			|| data.getNameService().equals("") || data.getPassword() .equals("")) {
 			
 			throw new Exception("CHECK THE DATA");
 		}

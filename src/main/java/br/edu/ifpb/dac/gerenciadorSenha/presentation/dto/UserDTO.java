@@ -14,15 +14,15 @@ public class UserDTO implements Serializable{
 	private String telephone;
 	
 
-	private Set<Data> dataSever = new HashSet<>();
+	private Set<Data> dataService = new HashSet<>();
 	public UserDTO() {}
 	
-	public UserDTO(String name, String password, String loginUser, String telephone,Set<Data> dataSever) {
+	public UserDTO(String name, String password, String loginUser, String telephone,Set<Data> dataService) {
 		this.name = name;
 		this.password = password;
 		this.login = loginUser;
 		this.telephone = telephone;
-		this.dataSever = dataSever;
+		this.dataService = dataService;
 	}
 	
 	public String getTelephone() {
@@ -50,12 +50,12 @@ public class UserDTO implements Serializable{
 		this.password = password;
 	}
 
-	public Set<Data> getDataSever() {
-		return dataSever;
+	public Set<Data> getDataService() {
+		return dataService;
 	}
 
-	public void setDataSever(Set<Data> dataSever) {
-		this.dataSever = dataSever;
+	public void setDataService(Set<Data> dataService) {
+		this.dataService = dataService;
 	}
 
 }

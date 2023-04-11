@@ -15,7 +15,7 @@ public class Data{
 	private long id;	
 	
 	@Column(nullable = false)
-	private String nameServer;
+	private String nameService;
 	private String password;
 	private String email;
 	private String observation;
@@ -26,11 +26,11 @@ public class Data{
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getNameServer() {
-		return nameServer;
+	public String getNameService() {
+		return nameService;
 	}
-	public void setNameServer(String nameServer) {
-		this.nameServer = nameServer;
+	public void setNameService(String nameService) {
+		this.nameService = nameService;
 	}
 	public String getPassword() {
 		return password;
@@ -53,8 +53,8 @@ public class Data{
 
 	public Data() {}
 	
-	public Data(String nameServer, String password, String email, String observation) {
-		this.nameServer = nameServer;
+	public Data(String nameService, String password, String email, String observation) {
+		this.nameService = nameService;
 		this.password = password;
 		this.email = email;
 		this.observation = observation;
@@ -62,11 +62,11 @@ public class Data{
 	
 	
 	public String toString() {
-		return " NOME DO SERVIÇO: " + nameServer + "\n SERVIÇO TIPO: " + observation.toString() + "\n EMAIL: " + email + "\n SENHA: " + password + " \n";	
+		return " NOME DO SERVIÇO: " + nameService + "\n SERVIÇO TIPO: " + observation.toString() + "\n EMAIL: " + email + "\n SENHA: " + password + " \n";	
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, id, password, observation, nameServer);
+		return Objects.hash(email, id, password, observation, nameService);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -78,7 +78,7 @@ public class Data{
 			return false;
 		Data other = (Data) obj;
 		return Objects.equals(email, other.email) && id == other.id && Objects.equals(password, other.password)
-				&& observation == other.observation && Objects.equals(nameServer, other.nameServer);
+				&& observation == other.observation && Objects.equals(nameService, other.nameService);
 	}
 	
 }

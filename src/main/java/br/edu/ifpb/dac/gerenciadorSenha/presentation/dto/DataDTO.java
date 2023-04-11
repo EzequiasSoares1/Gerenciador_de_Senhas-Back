@@ -8,7 +8,7 @@ public class DataDTO implements Serializable{
 
 	private long id;	
 
-	private String nameServer;
+	private String nameService;
 	private String password;
 	private String email;
 	private String observation;
@@ -19,11 +19,11 @@ public class DataDTO implements Serializable{
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getNameServer() {
-		return nameServer;
+	public String getNameService() {
+		return nameService;
 	}
-	public void setNameServer(String nameServer) {
-		this.nameServer = nameServer;
+	public void setNameService(String nameService) {
+		this.nameService = nameService;
 	}
 	public String getPassword() {
 		return password;
@@ -45,8 +45,8 @@ public class DataDTO implements Serializable{
 	}
 	public DataDTO() {}
 	
-	public DataDTO(String nameServer, String password, String email,String observation) {
-		this.nameServer = nameServer;
+	public DataDTO(String nameService, String password, String email,String observation) {
+		this.nameService = nameService;
 		this.password = password;
 		this.email = email;
 		this.observation = observation;

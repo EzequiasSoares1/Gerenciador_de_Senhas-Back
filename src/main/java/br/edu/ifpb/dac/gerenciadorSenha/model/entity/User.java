@@ -21,17 +21,17 @@ public class User{
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, orphanRemoval = true)
 	@JoinColumn(name="USERDATA_FK")
-	private Set<Data> dataSever = new HashSet<>();
+	private Set<Data> dataService = new HashSet<>();
 
 	public User() {
 	}
 	
-	public User(String name, String password, String loginUser,String telephone, Set<Data> dataSever) {
+	public User(String name, String password, String loginUser,String telephone, Set<Data> dataService) {
 		this.name = name;
 		this.password = password;
 		this.login = loginUser;
 		this.telephone = telephone;
-		this.dataSever = dataSever;
+		this.dataService = dataService;
 	}
 	
 	public String getTelephone() {
@@ -59,21 +59,21 @@ public class User{
 		this.password = password;
 	}
 
-	public Set<Data> getDataSever() {
-		return dataSever;
+	public Set<Data> getDataService() {
+		return dataService;
 	}
 
-	public void setDataSever(Set<Data> dataSever) {
-		this.dataSever = dataSever;
+	public void setDataService(Set<Data> dataService) {
+		this.dataService = dataService;
 	}
 
 	public String toString() {
 		return "NOME: " + name +  " LOGIN: " + login + " SENHA: " + password + "\n"
-				+ "\n SERVIÇO: \n" + dataSever + " \n";	
+				+ "\n SERVIÇO: \n" + dataService + " \n";	
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(dataSever, login, name, password);
+		return Objects.hash(dataService, login, name, password);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -84,7 +84,7 @@ public class User{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(dataSever, other.dataSever) && Objects.equals(login, other.login)
+		return Objects.equals(dataService, other.dataService) && Objects.equals(login, other.login)
 				&& Objects.equals(name, other.name) && Objects.equals(password, other.password);
 	}
 }

@@ -19,7 +19,7 @@ public class ControllerUser {
 		try {
 			
 			CheckerDataAndUser.checkerUser(user);
-			CheckerDataAndUser.checkerDataList(user.getDataSever());
+			CheckerDataAndUser.checkerDataList(user.getDataService());
 			User u = userServe.findByUser(user.getLogin());
 			
 			if(u == null) {
@@ -42,8 +42,8 @@ public class ControllerUser {
 			u.setPassword(user.getPassword());
 			u.setTelephone(user.getTelephone());
 			
-			for(Data a: user.getDataSever()) {
-				u.getDataSever().add(a);
+			for(Data a: user.getDataService()) {
+				u.getDataService().add(a);
 			}
 			
 			userServe.save(u);
@@ -87,7 +87,7 @@ public class ControllerUser {
 			if(u == null) {
 				throw new Exception(("USER NO FOUND"));
 			}
-			u.getDataSever().add(data);
+			u.getDataService().add(data);
 			userServe.save(u);
 
 		}catch(Exception e) {
