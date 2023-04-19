@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import br.edu.ifpb.dac.gerenciadorSenha.business.service.CheckerDataAndUser;
-import br.edu.ifpb.dac.gerenciadorSenha.business.service.UserService;
+import br.edu.ifpb.dac.gerenciadorSenha.business.service.UserServiceImpl;
 import br.edu.ifpb.dac.gerenciadorSenha.model.entity.Data;
 import br.edu.ifpb.dac.gerenciadorSenha.model.entity.User;
 
 @Controller 
 public class ControllerUser {
 	@Autowired
-	private UserService userServe;
+	private UserServiceImpl userServe;
 	
-	public void saveUser(User user) throws Exception {
+	public User saveUser(User user) throws Exception {
 		try {
 			
 			CheckerDataAndUser.checkerUser(user);
@@ -30,6 +30,7 @@ public class ControllerUser {
 		}catch(Exception e) {
 			throw new Exception(e.getMessage().intern());
 		}
+		return user;
 	}	
 	
 	public void updateUser(User user) throws Exception {

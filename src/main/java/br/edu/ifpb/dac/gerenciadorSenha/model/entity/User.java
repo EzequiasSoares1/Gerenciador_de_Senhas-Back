@@ -1,23 +1,35 @@
 package br.edu.ifpb.dac.gerenciadorSenha.model.entity;
+import java.util.Collection;
+
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 
 @Entity
 @Table(name = "Client")
-public class User{
+public class User implements UserDetails{
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String login;
 	private String name;
 	private String password;
 	private String telephone;
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<Role> role;
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, orphanRemoval = true)
 	@JoinColumn(name="USERDATA_FK")
@@ -71,6 +83,13 @@ public class User{
 		return "NOME: " + name +  " LOGIN: " + login + " SENHA: " + password + "\n"
 				+ "\n SERVIÇO: \n" + dataService + " \n";	
 	}
+	public List<Role> getRole() {
+		return role;
+	}
+
+	public void setRole(List<Role> roles) {
+		this.role = roles;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(dataService, login, name, password);
@@ -86,5 +105,41 @@ public class User{
 		User other = (User) obj;
 		return Objects.equals(dataService, other.dataService) && Objects.equals(login, other.login)
 				&& Objects.equals(name, other.name) && Objects.equals(password, other.password);
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return role;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }
