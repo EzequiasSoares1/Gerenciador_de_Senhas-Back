@@ -30,6 +30,6 @@ public class TokenDto {
 	
 	@Override
 	public String toString() {
-		return "Username: "+user.getName();
+		return "Username: "+user.getLogin();
 	}
 }

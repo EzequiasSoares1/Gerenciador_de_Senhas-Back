@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.gerenciadorSenha.business.service;
+package br.edu.ifpb.dac.gerenciadorSenha.config;
 
 import java.io.IOException;
 
@@ -35,7 +35,6 @@ import org.springframework.web.filter.CorsFilter;
 import br.edu.ifpb.dac.gerenciadorSenha.business.Interface.PasswordEncoderService;
 import br.edu.ifpb.dac.gerenciadorSenha.business.Interface.SystemRoleService;
 import br.edu.ifpb.dac.gerenciadorSenha.business.Interface.TokenService;
-import br.edu.ifpb.dac.gerenciadorSenha.config.TokenFilter;
 import br.edu.ifpb.dac.gerenciadorSenha.model.Interface.UserService;
 
 

@@ -23,8 +23,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "Client")
 public class User implements UserDetails{
 	private static final long serialVersionUID = 1L;
-	@Id
 	private String login;
+	@Id
 	private String name;
 	private String password;
 	private String telephone;

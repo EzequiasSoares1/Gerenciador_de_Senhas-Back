@@ -20,9 +20,11 @@ public class ControllerUser {
 			
 			CheckerDataAndUser.checkerUser(user);
 			CheckerDataAndUser.checkerDataList(user.getDataService());
-			User u = userServe.findByUser(user.getLogin());
+			User log = userServe.findByUser(user.getLogin());
+			User name = userServe.findByUserName(user.getName());
 			
-			if(u == null) {
+			
+			if(log == null && name == null) {
 				userServe.save(user);
 			}else {
 				throw new Exception("USER ALREADY EXISTS");
