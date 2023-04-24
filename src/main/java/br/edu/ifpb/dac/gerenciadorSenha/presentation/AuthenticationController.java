@@ -40,7 +40,7 @@ public class AuthenticationController {
 			
 			User entity = userService.findByUserName(dto.getUsername());
 					
-			UserDTO user = userConverterService.userToDto(entity); 
+			UserDTO user = userConverterService.userToDtoNoData(entity); 
 			
 			TokenDto tokenDto = new TokenDto(token, user);
 			

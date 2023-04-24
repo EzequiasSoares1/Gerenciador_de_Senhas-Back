@@ -3,6 +3,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 
 import br.edu.ifpb.dac.gerenciadorSenha.business.service.CheckerDataAndUser;
@@ -22,8 +23,6 @@ public class ControllerUser {
 			CheckerDataAndUser.checkerDataList(user.getDataService());
 			User log = userServe.findByUser(user.getLogin());
 			User name = userServe.findByUserName(user.getName());
-			
-			
 			if(log == null && name == null) {
 				userServe.save(user);
 			}else {
@@ -42,7 +41,14 @@ public class ControllerUser {
 			User u = findByUser(user.getLogin());
 			u.setLogin(user.getLogin());
 			u.setName(user.getName());
-			u.setPassword(user.getPassword());
+			
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String encodedPassword = passwordEncoder.encode(user.getPassword());
+			boolean matches = passwordEncoder.matches("minhaSenha", encodedPassword);
+			if(!matches) {
+				u.setPassword(user.getPassword());
+			}
+		
 			u.setTelephone(user.getTelephone());
 			
 			for(Data a: user.getDataService()) {

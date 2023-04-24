@@ -1,13 +1,12 @@
 package br.edu.ifpb.dac.gerenciadorSenha.presentation.dto;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import br.edu.ifpb.dac.gerenciadorSenha.model.entity.Data;
 
-public class UserDTO implements Serializable{
+public class UserDTO{
 	
-	private static final long serialVersionUID = 1L;
+	
 	private String login;
 	private String name;
 	private String password;
