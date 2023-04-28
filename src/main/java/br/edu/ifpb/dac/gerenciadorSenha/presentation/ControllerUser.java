@@ -37,24 +37,29 @@ public class ControllerUser {
 	public void updateUser(User user) throws Exception {
 		try {
 			
-			CheckerDataAndUser.checkerUser(user);
+			CheckerDataAndUser.checkerUpdateUser(user);
 			User u = findByUser(user.getLogin());
 			u.setLogin(user.getLogin());
 			u.setName(user.getName());
-			
+			System.out.print(user);
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 			String encodedPassword = passwordEncoder.encode(user.getPassword());
 			boolean matches = passwordEncoder.matches("minhaSenha", encodedPassword);
-			if(!matches) {
-				u.setPassword(user.getPassword());
+			
+			if(user.getPassword() != null) {
+				if(!matches) {
+					System.out.print("entrou");
+					u.setPassword(user.getPassword());
+				}
 			}
+			
 		
 			u.setTelephone(user.getTelephone());
 			
 			for(Data a: user.getDataService()) {
 				u.getDataService().add(a);
 			}
-			
+			System.out.print(u);
 			userServe.save(u);
 			
 		}catch(Exception e) {

@@ -14,7 +14,11 @@ public class CheckerDataAndUser {
 			throw new Exception("CHECK THE USER DATA");
 		}
 	}
-	
+	public static void checkerUpdateUser(User user) throws Exception{
+		if(user.getLogin() == null || user.getLogin().equals("") ) {
+			throw new Exception("CHECK THE USER DATA");
+		}
+	}
 	@SuppressWarnings("unused")
 	public static void checkerDataList(Set<Data> data) throws Exception {
 		  for(Data u: data) {
